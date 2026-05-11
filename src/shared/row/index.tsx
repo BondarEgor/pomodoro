@@ -3,7 +3,7 @@ import s from "./styles.module.css";
 import cn from "classnames";
 type Props = Pick<
   CSSProperties,
-  "flex" | "alignItems" | "justifyItems" | "gap"
+  "flex" | "alignItems" | "justifyContent" | "gap"
 > & {
   children: ReactNode;
   className?: string;
@@ -11,7 +11,7 @@ type Props = Pick<
 
 export const Row: FC<Props> = ({
   gap,
-  justifyItems,
+  justifyContent,
   alignItems,
   flex,
   children,
@@ -19,7 +19,7 @@ export const Row: FC<Props> = ({
 }) => {
   return (
     <div
-      style={{ gap, alignItems, justifyItems, flex }}
+      style={{ gap, alignItems, justifyContent, flex }}
       className={cn(s.row, className)}
     >
       {children}
