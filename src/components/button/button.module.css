@@ -1,0 +1,23 @@
+.container {
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition:
+    opacity 200ms,
+    border-color 200ms;
+  background: transparent;
+  color: white;
+  outline: none;
+  border: 2px solid transparent;
+
+  .text {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &:hover,
+  .active {
+    cursor: pointer;
+    opacity: 0.9;
+    border-color: #adc9c3c7;
+  }
+}

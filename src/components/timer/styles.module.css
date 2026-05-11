@@ -1,5 +1,11 @@
 .timer {
-  font-size: 104px;
-  line-height: 108px;
-  color: white;
+  --shadow-color: #000000;
+  font-size: 204px;
+  color: rgba(255, 255, 255, 0.25);
+  text-shadow: #3a484a 1px 5px 10px;
+  filter: drop-shadow(5px 5px 10px var(--shadow-color));
+
+  &.running {
+    --shadow-color: #532525;
+  }
 }
