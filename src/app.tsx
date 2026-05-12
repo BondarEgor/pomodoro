@@ -12,6 +12,7 @@ function App() {
   const {
     time,
     isRunning,
+    mode,
     handleSetClassic,
     handleSetDeep,
     handleSetShort,
@@ -20,23 +21,31 @@ function App() {
     handleResetTimer,
   } = useTimer();
 
+  const modeBtnsConfig = [
+    { text: "Classic", onClick: handleSetClassic, id: "classic" },
+    { text: "Deep", onClick: handleSetDeep, id: "deep" },
+    { text: "Short", onClick: handleSetShort, id: "short" },
+  ];
+
+  const actionBtnsConfig = [
+    { text: "Start", onClick: handleStartTimer },
+    { text: "Pause", onClick: handlePauseTimer },
+    { text: "Reset", onClick: handleResetTimer },
+  ];
+
   return (
     <Col flex={1}>
       <Header />
 
       <Col justifyContent="center" alignItems="center" flex={1}>
         <Row gap={10}>
-          <Button onClick={handleSetClassic} text={"Classic"} />
-          <Button onClick={handleSetDeep} text={"Deep"} />
-          <Button onClick={handleSetShort} text={"Short"} />
+          {modeBtnsConfig.map(({ id, ...btnProps }) => (
+            <Button {...btnProps} active={id === mode} />
+          ))}
         </Row>
         <Timer value={time} isRunning={isRunning} />
 
-        <Row gap={10}>
-          <Button onClick={handleStartTimer} text={"Start"} />
-          <Button onClick={handlePauseTimer} text={"Pause"} />
-          <Button onClick={handleResetTimer} text={"Reset"} />
-        </Row>
+        <Row gap={10}>{actionBtnsConfig.map(Button)}</Row>
       </Col>
     </Col>
   );

@@ -5,7 +5,6 @@
     opacity 200ms,
     border-color 200ms;
   background: transparent;
-  color: white;
   outline: none;
   border: 2px solid transparent;
 
@@ -15,7 +14,7 @@
   }
 
   &:hover,
-  .active {
+  &.active {
     cursor: pointer;
     opacity: 0.9;
     border-color: #adc9c3c7;
