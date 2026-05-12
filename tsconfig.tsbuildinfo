@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/button/index.tsx","./src/components/header/index.tsx","./src/components/quote/constants.ts","./src/components/quote/index.tsx","./src/components/timer/index.tsx","./src/components/timer/use-timer.ts","./src/shared/col/index.tsx","./src/shared/row/index.tsx"],"version":"6.0.3"}
