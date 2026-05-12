@@ -1,5 +1,7 @@
 .text {
   font-size: 40px;
   line-height: 44px;
-  color: rgb(231, 231, 192);
+  color: rgba(255, 255, 255, 0.25);
+  filter: drop-shadow(5px 5px 10px #000000);
+  text-shadow: #3a484a 1px 5px 1px;
 }

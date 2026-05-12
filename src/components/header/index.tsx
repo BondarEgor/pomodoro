@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <header className={s.container}>
       <Row flex={1} justifyContent='space-between'>
-        <span>some on the left</span>
+        <div></div>
         <Quote />
       </Row>
     </header>

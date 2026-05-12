@@ -21,11 +21,6 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  background-image: url("/images/background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 #root {

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 type Mode = 'classic' | 'deep' | 'short';
 
-const PRESETS = {
+export const MODES = {
   classic: 25,
   deep: 50,
   short: 15,
@@ -10,9 +10,10 @@ const PRESETS = {
 
 export const useTimer = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [seconds, setSeconds] = useState(PRESETS['classic'] * 60);
+  const [seconds, setSeconds] = useState(MODES['classic'] * 60);
+  const [mode, setMode] = useState<Mode>('classic');
+
   const timerRef = useRef(null);
-  const lastModeRef = useRef<Mode>('classic');
 
   useEffect(() => {
     if (!isRunning) return;
@@ -57,16 +58,16 @@ export const useTimer = () => {
 
   const handleResetTimer = () => {
     setIsRunning(false);
-    setSeconds(PRESETS[lastModeRef.current] * 60);
+    setSeconds(MODES[mode] * 60);
   };
 
-  const handleSetMinutes = (mode: Mode) => {
+  const handleChooseMode = (mode: Mode) => {
     setIsRunning(false);
 
-    const minutes = PRESETS[mode];
+    const minutes = MODES[mode];
     setSeconds(minutes * 60);
 
-    lastModeRef.current = mode;
+    setMode(mode);
   };
 
   const minutes = Math.floor(seconds / 60);
@@ -78,10 +79,11 @@ export const useTimer = () => {
     handlePauseTimer,
     handleResetTimer,
     handleStartTimer,
-    handleSetClassic: () => handleSetMinutes('classic'),
-    handleSetDeep: () => handleSetMinutes('deep'),
-    handleSetShort: () => handleSetMinutes('short'),
+    handleSetClassic: () => handleChooseMode('classic'),
+    handleSetDeep: () => handleChooseMode('deep'),
+    handleSetShort: () => handleChooseMode('short'),
     time,
+    mode,
     minutes,
     setSeconds: (number) => setSeconds(number * 60),
     isRunning
