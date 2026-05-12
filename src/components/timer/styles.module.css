@@ -1,11 +1,14 @@
 .timer {
   --shadow-color: #000000;
-  font-size: 204px;
   color: rgba(255, 255, 255, 0.25);
   text-shadow: #3a484a 1px 5px 10px;
   filter: drop-shadow(5px 5px 10px var(--shadow-color));
-
+  font-size: 104px;
   &.running {
     --shadow-color: #532525;
+  }
+
+  @media (min-width: 1080px) {
+    font-size: 204px;
   }
 }
