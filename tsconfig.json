@@ -6,14 +6,13 @@
       "ES2023",
       "DOM"
     ],
-    "baseUrl": "./",
     "module": "esnext",
     "types": [
       "vite/client"
     ],
     "paths": {
       "@shared/*": [
-        "src/shared/*"
+        "./src/shared/*"
       ]
     },
     "moduleResolution": "bundler",

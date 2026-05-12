@@ -13,14 +13,14 @@ export const useTimer = () => {
   const [seconds, setSeconds] = useState(MODES['classic'] * 60);
   const [mode, setMode] = useState<Mode>('classic');
 
-  const timerRef = useRef(null);
+  const timerRef = useRef(0);
 
   useEffect(() => {
     if (!isRunning) return;
 
     const id = setInterval(() => {
       setSeconds((prev) => {
-        if (prev <= 897) {
+        if (prev <= 0) {
           setIsRunning(false);
 
           const permission = Notification.permission;
@@ -85,7 +85,7 @@ export const useTimer = () => {
     time,
     mode,
     minutes,
-    setSeconds: (number) => setSeconds(number * 60),
+    setSeconds: (number: number) => setSeconds(number * 60),
     isRunning
   };
 };
